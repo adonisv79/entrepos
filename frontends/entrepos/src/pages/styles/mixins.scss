@@ -1,0 +1,10 @@
+@import "theme";
+
+@mixin primary-element {
+    background-color: $primarybgcolor1;
+    color: $primaryfgcolor1;
+    a:link { color: $primaryfgcolor1; }
+    a:visited { color: $primaryfgcolor1visited; }
+    a:hover { color: $primaryfgcolor1hover; }
+    a:active { color: $primaryfgcolor1active; }
+}

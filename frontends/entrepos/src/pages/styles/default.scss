@@ -1,0 +1,58 @@
+@import "mixins";
+
+body {
+    font: { 
+        family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; 
+     };
+    padding: 20px 20px 60px;
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: $basebgcolor;
+    color: $textcolor;
+}
+
+header {
+    .box {
+        @include primary-element;
+        @include primary-element;
+        background: $header-bg;
+        border-radius: $border-rounding;
+        padding: 20px;
+        height: 80px;
+    }
+}
+
+footer {
+    font-size: x-small;
+    text-align: center;
+    .box {
+        @include primary-element;
+        background: $footer-bg;
+        border-radius: 0px 0px $border-rounding $border-rounding;
+        padding: 20px;
+        height: 80px;
+    }
+}
+
+nav.horizontal-menu {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333333;
+        li {
+            float: left;
+            a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 16px;
+                text-decoration: none;
+            };
+            a:hover {
+                background-color: #111111;
+            }
+        }
+    }
+}
