@@ -35,7 +35,10 @@ footer {
 }
 
 nav.horizontal-menu {
+    display: inline-flex;
+    float:right;
     ul {
+        width: 920px;
         list-style-type: none;
         margin: 0;
         padding: 0;
