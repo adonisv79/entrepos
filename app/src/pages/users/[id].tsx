@@ -1,11 +1,11 @@
+import { useUser, UserProfile } from '@auth0/nextjs-auth0/client'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 
-import { User } from '../../interfaces'
 import Layout from '../../components/Layout'
 import ListDetail from '../../components/ListDetail'
 
-const sampleUserData: [User] = [
+const sampleUserData: [UserProfile] = [
   {
     id: 1,
     name: 'Adonis V'
@@ -13,7 +13,7 @@ const sampleUserData: [User] = [
 ]
 
 type Props = {
-  item?: User
+  item?: UserProfile
   errors?: string
 }
 
@@ -27,9 +27,11 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
       </Layout>
     )
   }
+  
+  const { user, isLoading } = useUser()
 
   return (
-    <Layout>
+    <Layout user={user} isLoading={isLoading}>
       <Head>
         <title>{`${item ? item.name : 'User Detail' } | Next.js + TypeScript Example`}</title>
         <meta property="og:title" content="sads" key="title" />
@@ -43,7 +45,7 @@ export default StaticPropsDetail
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on users
-  const paths = sampleUserData.map((user) => ({
+  const paths = sampleUserData.map((user: UserProfile) => ({
     params: { id: user.id.toString() },
   }))
 

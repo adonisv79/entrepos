@@ -4,13 +4,13 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
-    id: number
-    email: string
-    email_verified: boolean
-    name: string
-    nickname: string
-    picture: string
-    sub: string
-    updated_at: string
-  }
+// export type User = {
+//     id: number
+//     email: string
+//     email_verified: boolean
+//     name: string
+//     nickname: string
+//     picture: string
+//     sub: string
+//     updated_at: string
+//   }

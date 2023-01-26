@@ -1,3 +1,4 @@
+import { UserProfile } from '@auth0/nextjs-auth0/client'
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -14,25 +15,24 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import Link from 'next/link'
 import * as React from 'react';
-import { redirect } from 'next/dist/server/api-utils';
 
 interface HeaderProps {
-    user?: any
-    loading: boolean
+    user?: UserProfile
+    isLoading: boolean
 }
 
-export default function AccountMenu({ user, loading }: HeaderProps) {
+export default function HeaderMenu({user, isLoading}: HeaderProps) {
+    return (<>{ isLoading ? <>Loading...</> : <MenuOptions user={user} isLoading={isLoading} /> }</>)
+}
+
+function MenuOptions({ user, isLoading }: HeaderProps) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    function handleClick(event: React.MouseEvent<HTMLElement>) {
         setAnchorEl(event.currentTarget);
     };
-    const handleClose = () => {
+    function handleClose() {
         setAnchorEl(null);
-    };
-    const handleLogout = () => {
-        setAnchorEl(null);
-        
     };
     return (
         <React.Fragment>
@@ -52,7 +52,7 @@ export default function AccountMenu({ user, loading }: HeaderProps) {
                 <Typography sx={{ minWidth: 100 }}>
                     <Link href="/advanced/api-profile" legacyBehavior>API rendered profile (advanced)</Link>
                 </Typography>
-                {!loading && (user ? (
+                {!isLoading && (user ? (
                     <Tooltip title="Account settings">
                         <IconButton
                             onClick={handleClick}

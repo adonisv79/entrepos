@@ -1,10 +1,9 @@
-import { withPageAuthRequired } from '@auth0/nextjs-auth0/client'
+import { UserProfile, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
 import Head from 'next/head'
 import Layout from '../components/Layout'
-import { User } from '../interfaces'
 
 type ProfileCardProps = {
-  user: User
+  user: UserProfile
 }
 
 const ProfileCard = ({ user }: ProfileCardProps) => {
@@ -15,10 +14,9 @@ const ProfileCard = ({ user }: ProfileCardProps) => {
         <meta property="og:title" content="sads" key="title" />
       </Head>
       <h1>Profile</h1>
-
       <div>
         <h3>Profile (client rendered)</h3>
-        <img src={user.picture} alt="user picture" />
+        <img src={user?.picture} alt="user picture" />
         <p>nickname: {user.nickname}</p>
         <p>name: {user.name}</p>
       </div>
@@ -29,6 +27,7 @@ const ProfileCard = ({ user }: ProfileCardProps) => {
 const Profile = ({ user, isLoading }) => {
   return (
     <Layout user={user} loading={isLoading}>
+      <div>{typeof isLoading}</div>
       {isLoading ? <>Loading...</> : <ProfileCard user={user} />}
     </Layout>
   )

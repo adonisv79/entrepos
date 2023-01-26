@@ -1,9 +1,9 @@
+import { UserProfile } from '@auth0/nextjs-auth0/client'
 import React from 'react'
 import Link from 'next/link'
-import { User } from '../interfaces'
 
 type Props = {
-  data: User
+  data: UserProfile
 }
 
 const ListItem = ({ data }: Props) => (

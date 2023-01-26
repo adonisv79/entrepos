@@ -1,9 +1,9 @@
+import { UserProfile } from '@auth0/nextjs-auth0/client'
 import * as React from 'react'
 import ListItem from './ListItem'
-import { User } from '../interfaces'
 
 type Props = {
-  items: User[]
+  items: UserProfile[]
 }
 
 const List = ({ items }: Props) => (

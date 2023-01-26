@@ -1,22 +1,27 @@
 import React, { ReactNode } from 'react'
-import Link from 'next/link'
 import Head from 'next/head'
-import MainHeader from './headers/MainHeader'
+import HeaderMenu from './HeaderMenu'
+import { UserProfile } from '@auth0/nextjs-auth0/client'
 
 type LayoutProps = {
-  user?: any
-  loading?: boolean
+  user?: UserProfile
+  isLoading?: boolean
   children?: ReactNode
 }
 
-export default ({ user, loading = false, children }: LayoutProps) => (
+export default ({ user, isLoading = false, children }: LayoutProps) => (
   <div>
     <Head>
       <title>EntrePOS</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <MainHeader user={user} loading={loading} />
+    <header>
+      <div className='box'>
+          <img src="/logo-s.png" alt="EntrePOS Logo" width="250" />
+          <HeaderMenu user={user} isLoading={isLoading} />
+      </div>
+    </header>
     {children}
     <footer>
       <div className='box'>

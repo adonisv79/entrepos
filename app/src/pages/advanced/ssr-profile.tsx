@@ -1,10 +1,10 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+import { UserProfile } from '@auth0/nextjs-auth0/client'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
-import { User } from '../../interfaces'
 
 type ProfileProps = {
-  user: User
+  user: UserProfile
 }
 
 export default function Profile({ user }: ProfileProps) {
