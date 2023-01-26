@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useUser } from '@auth0/nextjs-auth0/client'
+import Head from 'next/head'
 import Layout from '../../components/Layout'
 
 const ApiProfile = () => {
@@ -19,6 +20,10 @@ const ApiProfile = () => {
 
   return (
     <Layout user={user} loading={isLoading}>
+      <Head>
+        <title>EntrePOS - CSR Sample</title>
+        <meta property="og:title" content="sads" key="title" />
+      </Head>
       <h1>Profile</h1>
 
       <div>

@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
 
 import { User } from '../../interfaces'
@@ -17,7 +18,11 @@ type Props = {
 }
 
 const WithStaticProps = ({ items }: Props) => (
-  <Layout title="Users List | Next.js + TypeScript Example">
+  <Layout>
+    <Head>
+      <title>EntrePOS - Userlist</title>
+      <meta property="og:title" content="sads" key="title" />
+    </Head>
     <h1>Users List</h1>
     <p>
       Example fetching data from inside <code>getStaticProps()</code>.

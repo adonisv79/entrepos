@@ -1,4 +1,5 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+import Head from 'next/head'
 import Layout from '../../components/Layout'
 import { User } from '../../interfaces'
 
@@ -9,6 +10,10 @@ type ProfileProps = {
 export default function Profile({ user }: ProfileProps) {
   return (
     <Layout user={user}>
+      <Head>
+        <title>EntrePOS - SSR sample</title>
+        <meta property="og:title" content="sads" key="title" />
+      </Head>
       <h1>Profile</h1>
 
       <div>

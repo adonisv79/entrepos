@@ -1,4 +1,5 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client'
+import Head from 'next/head'
 import Layout from '../components/Layout'
 import { User } from '../interfaces'
 
@@ -9,6 +10,10 @@ type ProfileCardProps = {
 const ProfileCard = ({ user }: ProfileCardProps) => {
   return (
     <>
+      <Head>
+        <title>EntrePOS - Profile</title>
+        <meta property="og:title" content="sads" key="title" />
+      </Head>
       <h1>Profile</h1>
 
       <div>

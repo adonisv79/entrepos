@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
+import Head from 'next/head'
 
 import { User } from '../../interfaces'
 import Layout from '../../components/Layout'
@@ -28,10 +29,11 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
   }
 
   return (
-    <Layout
-      title={`${item ? item.name : 'User Detail'
-        } | Next.js + TypeScript Example`}
-    >
+    <Layout>
+      <Head>
+        <title>{`${item ? item.name : 'User Detail' } | Next.js + TypeScript Example`}</title>
+        <meta property="og:title" content="sads" key="title" />
+      </Head>
       {item && <ListDetail item={item} />}
     </Layout>
   )

@@ -7,13 +7,12 @@ type LayoutProps = {
   user?: any
   loading?: boolean
   children?: ReactNode
-  title?: string
 }
 
-export default ({ user, loading = false, children, title = 'This is the default title' }: LayoutProps) => (
+export default ({ user, loading = false, children }: LayoutProps) => (
   <div>
     <Head>
-      <title>{title}</title>
+      <title>EntrePOS</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>

@@ -4,7 +4,6 @@
   "description": "Entrepos is an open sourced POS system made for micro to small enterprises",
   "main": "src/index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,13 +22,5 @@
   "bugs": {
     "url": "https://github.com/adonisv79/entrepos/issues"
   },
-  "homepage": "https://github.com/adonisv79/entrepos#readme",
-  "dependencies": {
-    "adon-api": "^2.4.1",
-    "express-openid-connect": "^2.11.0"
-  },
-  "devDependencies": {
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.4"
-  }
+  "homepage": "https://github.com/adonisv79/entrepos#readme"
 }
