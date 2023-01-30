@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import HeaderMenu from './HeaderMenu'
+import HeaderMenu2 from './HeaderMenu2'
 import { UserProfile } from '@auth0/nextjs-auth0/client'
 
 type LayoutProps = {
@@ -8,6 +9,17 @@ type LayoutProps = {
   isLoading?: boolean
   children?: ReactNode
 }
+
+const links = [
+  { display: 'Home', href: '/' },
+  { display: 'About', href: '/about' },
+  { display: 'Users List', href: '/users' },
+  { display: 'API rendered profile', href: '/advanced/api-profile' },
+  { display: 'Profile', href: '/profile', auth: true, userlink: true },
+  { display: 'My Enterprises', href: '/e', auth: true,  },
+  { divider: true },
+  { display: 'Logout', href: '/api/auth/logout', auth: true, userlink: true },
+]
 
 export default ({ user, isLoading = false, children }: LayoutProps) => (
   <div>
@@ -17,10 +29,7 @@ export default ({ user, isLoading = false, children }: LayoutProps) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <header>
-      <div className='box'>
-          <img src="/logo-s.png" alt="EntrePOS Logo" width="250" />
-          <HeaderMenu user={user} isLoading={isLoading} />
-      </div>
+      <HeaderMenu2 user={user} isLoading={isLoading} links={links} />
     </header>
     {children}
     <footer>
