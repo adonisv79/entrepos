@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useUser } from '@auth0/nextjs-auth0/client'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 
 const ApiProfile = () => {
-  const { user, isLoading } = useUser()
-
   const [data, setData] = useState(null)
 
   useEffect(() => {
@@ -13,13 +10,12 @@ const ApiProfile = () => {
       const res = await fetch('/api/protected-api')
 
       const data = await res.json()
-
       setData(data)
     })()
   }, [])
 
   return (
-    <Layout user={user} loading={isLoading}>
+    <Layout>
       <Head>
         <title>EntrePOS - CSR Sample</title>
         <meta property="og:title" content="sads" key="title" />

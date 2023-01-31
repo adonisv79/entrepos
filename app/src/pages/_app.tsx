@@ -23,9 +23,9 @@ export default function MyApp({ Component, emotionCache = clientSideEmotionCache
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-          <UserProvider user={user}>
-            <Component {...pageProps} />
-          </UserProvider>
+        <UserProvider user={user}>
+          <Component {...pageProps} />
+        </UserProvider>
       </ThemeProvider>
     </CacheProvider>
   )

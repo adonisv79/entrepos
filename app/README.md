@@ -22,6 +22,16 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Configuration
+You need to setup some environment configurations to run this. This sets up dependencies like AUTH0 and MongoDB. You can create a ".env" file on the root or set them in the local machine.
+
+AUTH0_SECRET={A long, secret value used to encrypt the session cookie}
+AUTH0_BASE_URL={This is the base URL to redirect to. (in dev for example it will be your http://localhost:3000)}
+AUTH0_ISSUER_BASE_URL={your AUTH0 tenant domain (ex: https://{subdomain}.au.auth0.com)}
+AUTH0_CLIENT_ID={your AUTH0 application's client id}
+AUTH0_CLIENT_SECRET={your AUTH0 application's client secret}
+MONGODB_URI={The mongodb connection string to use (ex: mongodb+srv://<username>:<password>@{???}.uribq.gcp.mongodb.net/?retryWrites=true&w=majority)}
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

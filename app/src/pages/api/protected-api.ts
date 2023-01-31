@@ -7,11 +7,15 @@ async function handle(req, res) {
   const { user } = await getSession(req, res)
 
   try {
-    res.status(200).json({
-      session: 'true',
-      id: user?.sub,
-      nickname: user?.nickname,
-    })
+    // we simulate a delayed response
+    setTimeout(() => {
+
+      res.status(200).json({
+        session: 'true',
+        id: user?.sub,
+        nickname: user?.nickname,
+      })
+    },2000)
   } catch (e) {
     res.status(500).json({ error: 'Unable to fetch', description: e })
   }

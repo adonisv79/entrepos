@@ -1,4 +1,4 @@
-import { useUser, UserProfile } from '@auth0/nextjs-auth0/client'
+import { UserProfile } from '@auth0/nextjs-auth0/client'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -18,10 +18,8 @@ type Props = {
 }
 
 const WithStaticProps = ({ items }: Props) => {
-  
-  const { user, isLoading } = useUser()
   return  (
-    <Layout user={user} isLoading={isLoading}>
+    <Layout>
       <Head>
         <title>EntrePOS - Userlist</title>
         <meta property="og:title" content="sads" key="title" />

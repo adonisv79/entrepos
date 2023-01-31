@@ -1,6 +1,5 @@
 import { UserProfile, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
 import Head from 'next/head'
-import { json } from 'stream/consumers'
 import Layout from '../components/Layout'
 
 type ProfileCardProps = {
@@ -8,17 +7,10 @@ type ProfileCardProps = {
 }
 
 const ProfileCard = ({ user }: ProfileCardProps) => {
-  
-  const item = localStorage.getItem('key')
   return (
     <>
-      <Head>
-        <title>EntrePOS - Profile</title>
-        <meta property="og:title" content="sads" key="title" />
-      </Head>
       <h1>Profile</h1>
       <div>
-        <p>{item}</p>
         <h3>Profile (client rendered)</h3>
         <img src={user?.picture} alt="user picture" />
         <p>Given Name: {user.given_name}</p>
@@ -37,14 +29,15 @@ const ProfileCard = ({ user }: ProfileCardProps) => {
   )
 }
 
-const Profile = ({ user, isLoading }) => {
+// Protected route, checking user authentication client-side.(CSR)
+export default withPageAuthRequired(({ user, isLoading }) => {
   return (
-    <Layout user={user} loading={isLoading}>
-      <div>{typeof isLoading}</div>
-      {isLoading ? <>Loading...</> : <ProfileCard user={user} />}
+    <Layout>
+      <Head>
+        <title>EntrePOS - Profile</title>
+        <meta property="og:title" content="sads" key="title" />
+      </Head>
+      {!isLoading && <ProfileCard user={user} />}
     </Layout>
   )
-}
-
-// Protected route, checking user authentication client-side.(CSR)
-export default withPageAuthRequired(Profile)
+})
