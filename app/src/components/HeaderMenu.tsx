@@ -140,7 +140,7 @@ export default function ResponsiveAppBar({ user }: HeaderProps) {
                             (<>
                                 <Tooltip title="Open settings">
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt={user.name} src={user?.picture} />
+                                        <Avatar alt={user.name?.toString()} src={user.picture?.toString()} />
                                     </IconButton>
                                 </Tooltip>
                                 <Menu

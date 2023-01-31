@@ -2,7 +2,6 @@ import { useUser } from '@auth0/nextjs-auth0/client'
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import HeaderMenu from './HeaderMenu'
-import HeaderMenu2 from './HeaderMenu'
 import { UserProfile } from '@auth0/nextjs-auth0/client'
 import { Container } from '@mui/system'
 
@@ -27,7 +26,7 @@ export default ({ children }: LayoutProps) => {
           <Container maxWidth='xl'>
 
             <header>
-              <HeaderMenu2 user={user} />
+              <HeaderMenu user={user} />
             </header>
             {children}
             <footer>

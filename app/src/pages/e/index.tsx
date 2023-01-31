@@ -9,7 +9,7 @@ import { InferGetServerSidePropsType } from 'next'
 import { WithId } from "mongodb";
 
 
-interface Enterprises extends WithId<Document>{
+interface Enterprise extends WithId<Document>{
   name: string
 }
 
@@ -38,12 +38,14 @@ export async function getServerSideProps() {
   }
 }
 
-interface Prop extends InferGetServerSidePropsType<typeof getServerSideProps> {
+interface PropExt {
   user?: UserProfile
   isLoading?: boolean
   isConnected: boolean
-  enterprises: Enterprises[]
+  enterprises: Enterprise[]
 }
+
+type Prop = PropExt & InferGetServerSidePropsType<typeof getServerSideProps>
 
 export default withPageAuthRequired(({ isConnected, enterprises }: Prop) => {
   return (
@@ -52,7 +54,7 @@ export default withPageAuthRequired(({ isConnected, enterprises }: Prop) => {
         {
           isConnected ? (
             <div>
-              {enterprises.map((e) => (
+              {enterprises.map((e: Enterprise) => (
                 <ul>
                   <li>{e._id.toString()}</li>
                   <li>{e.name.toString()}</li>

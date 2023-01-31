@@ -44,7 +44,7 @@ export default StaticPropsDetail
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on users
   const paths = sampleUserData.map((user: UserProfile) => ({
-    params: { id: user.id.toString() },
+    params: { id: user.id?.toString() },
   }))
 
   // We'll pre-render only these paths at build time.
