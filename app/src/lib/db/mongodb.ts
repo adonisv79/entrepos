@@ -27,6 +27,9 @@ if (process.env.NODE_ENV === 'development') {
   clientPromise = client.connect()
 }
 
-// Export a module-scoped MongoClient promise. By doing this in a
-// separate module, the client can be shared across functions.
-export default clientPromise
+let result: MongoClient
+
+export default async function useDB(dbName: string) {
+  if (!result) result = await clientPromise
+  return result.db(dbName);
+}

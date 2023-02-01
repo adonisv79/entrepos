@@ -35,7 +35,7 @@ const navigationLinks: PageLink[] = [
     { display: 'About', href: '/about' },
     { display: 'Users List', href: '/users' },
     { display: 'API rendered profile', href: '/advanced/api-profile' },
-    { display: 'My Enterprises', href: '/e', auth: true, },
+    { display: 'My Enterprises', href: '/app', auth: true, },
 ]
 
 const userLinks: PageLink[] = [
